@@ -24,10 +24,12 @@ const Home = () => {
       setLoading(true);
 
       try {
-        const response = await fetch("http://localhost:8080/api/v1/post", {
+        const response = await fetch(import.meta.env.VITE_IMAGES_LINK, {
           method: "GET",
           headers: { "Content-Type": "application/json" },
         });
+
+        console.log(import.meta.env.VITE_IMAGES_LINK);
         if (response.ok) {
           const result = await response.json();
 
